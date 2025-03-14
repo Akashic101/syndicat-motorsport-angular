@@ -15,253 +15,54 @@
   </div>
 </div>
 
-<!-- PrimeNG Table Section -->
-<div class="w-full p-4">
-  <p-table [value]="events" class="w-full" stripedRows>
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Event Name</th>
-        <th>Track</th>
-        <th>Car</th>
-        <th>Sim</th>
-        <th>Date</th>
-        <th></th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-event>
-      <tr>
-        <td>{{ event.eventName }}</td>
-        <td>{{ event.track }}</td>
-        <td>{{ event.car }}</td>
-        <td>{{ event.sim }}</td>
-        <td>{{ event.date | date : "dd.MM.yyyy 'at' hh:mm a OOO" }}</td>
-        <td>
-          <a
-            href="https://discord.gg/v7bbYHSY3p?event=1347884719890501693"
-            target="_blank"
-            severity="secondary"
-            rel="noopener noreferrer"
-            class="p-button secondary font-bold"
-          >
-            Sign up now!
-          </a>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-<div>
-  <div class="px-6 py-20 md:px-12 lg:px-20">
-    <div class="text-center flex flex-col items-center gap-4">
-      <div class="font-bold text-lg leading-tight">
-        <i class="pi pi-discord !text-lg !leading-none">POWERED BY DISCORD</i>
-      </div>
-      <div
-        class="text-surface-900 dark:text-surface-0 font-bold text-4xl leading-tight"
-      >
-        Join our community!
-      </div>
-      <div
-        class="text-surface-700 dark:text-surface-100 text-xl leading-normal"
-      >
-        Weekly races, community events, friendly chats and more!
-      </div>
-      <p-button label="Join Now" icon="pi pi-discord" class="mt-4" />
-    </div>
-  </div>
-</div>
-
+<sm-event-table />
+<sm-cta />
 <div class="px-6 py-8 md:px-12 lg:px-20">
   <div class="grid grid-cols-12 gap-4">
     <div class="col-span-12 md:col-span-6 lg:col-span-3">
-      <div class="bg-surface-0 dark:bg-surface-900 shadow p-4 rounded-border">
-        <div class="flex justify-between mb-4">
-          <div>
-            <span
-              class="block text-surface-500 dark:text-surface-300 font-medium mb-4"
-              >Discord Members</span
-            >
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium !text-xl"
-            >
-              678
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/30 rounded-border w-10 h-10"
-          >
-            <i
-              class="pi pi-shopping-cart text-blue-500 dark:text-blue-200 !text-xl"
-            ></i>
-          </div>
-        </div>
-      </div>
+      <sm-stat-field
+        [text]="'Discord Members'"
+        [stat]="678"
+        color="bg-blue-300"
+      />
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3">
-      <div class="bg-surface-0 dark:bg-surface-900 shadow p-4 rounded-border">
-        <div class="flex justify-between mb-4">
-          <div>
-            <span
-              class="block text-surface-500 dark:text-surface-300 font-medium mb-4"
-              >Races held</span
-            >
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium !text-xl"
-            >
-              349
-            </div>
-          </div>
-          <div
-            class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/30 rounded-border w-10 h-10"
-          >
-            <i
-              class="pi pi-map-marker text-orange-500 dark:text-orange-200 !text-xl"
-            ></i>
-          </div>
-        </div>
-      </div>
+      <sm-stat-field [text]="'Races held'" [stat]="312" color="bg-red-400" />
     </div>
+
     <div class="col-span-12 md:col-span-6 lg:col-span-3">
-      <div class="bg-surface-0 dark:bg-surface-900 shadow p-4 rounded-border">
-        <div class="flex justify-between mb-4">
-          <div>
-            <span
-              class="block text-surface-500 dark:text-surface-300 font-medium mb-4"
-              >Sim-Games</span
-            >
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium !text-xl"
-            >
-              3
-            </div>
-          </div>
-          <div
-            class="w-10 h-10 flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/30 rounded-border"
-          >
-            <i
-              class="pi pi-inbox text-cyan-500 dark:text-cyan-200 !text-xl"
-            ></i>
-          </div>
-        </div>
-      </div>
+      <sm-stat-field [text]="'Sim games'" [stat]="3" color="bg-green-500" />
     </div>
+
     <div class="col-span-12 md:col-span-6 lg:col-span-3">
-      <div class="bg-surface-0 dark:bg-surface-900 shadow p-4 rounded-border">
-        <div class="flex justify-between mb-4">
-          <div>
-            <span
-              class="block text-surface-500 dark:text-surface-300 font-medium mb-4"
-              >Years of experience</span
-            >
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium !text-xl"
-            >
-              4
-            </div>
-          </div>
-          <div
-            class="w-10 h-10 flex items-center justify-center bg-purple-100 dark:bg-purple-400/30 rounded-border"
-          >
-            <i
-              class="pi pi-comment text-purple-500 dark:text-purple-200 !text-xl"
-            ></i>
-          </div>
-        </div>
-      </div>
+      <sm-stat-field
+        [text]="'Years of experience'"
+        [stat]="4"
+        color="bg-yellow-500"
+      />
     </div>
   </div>
 </div>
 
-<div class="flex justify-center">
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
-      <ng-template #header>
-        <img
-          alt="Card"
-          class="w-full"
-          src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
-        />
-      </ng-template>
-      <ng-template #title> Advanced Card </ng-template>
-      <ng-template #subtitle> Card subtitle </ng-template>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-        consequuntur error repudiandae numquam deserunt quisquam repellat libero
-        asperiores earum nam nobis, culpa ratione quam perferendis esse,
-        cupiditate neque quas!
-      </p>
-      <ng-template #footer>
-        <div class="flex gap-4 mt-1">
-          <p-button
-            label="Cancel"
-            severity="secondary"
-            class="w-full"
-            [outlined]="true"
-            styleClass="w-full"
-          />
-          <p-button label="Save" class="w-full" styleClass="w-full" />
-        </div>
-      </ng-template>
-    </p-card>
-
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
-      <ng-template #header>
-        <img
-          alt="Card"
-          class="w-full"
-          src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
-        />
-      </ng-template>
-      <ng-template #title> Advanced Card </ng-template>
-      <ng-template #subtitle> Card subtitle </ng-template>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-        consequuntur error repudiandae numquam deserunt quisquam repellat libero
-        asperiores earum nam nobis, culpa ratione quam perferendis esse,
-        cupiditate neque quas!
-      </p>
-      <ng-template #footer>
-        <div class="flex gap-4 mt-1">
-          <p-button
-            label="Cancel"
-            severity="secondary"
-            class="w-full"
-            [outlined]="true"
-            styleClass="w-full"
-          />
-          <p-button label="Save" class="w-full" styleClass="w-full" />
-        </div>
-      </ng-template>
-    </p-card>
-
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
-      <ng-template #header>
-        <img
-          alt="Card"
-          class="w-full"
-          src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
-        />
-      </ng-template>
-      <ng-template #title> Advanced Card </ng-template>
-      <ng-template #subtitle> Card subtitle </ng-template>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-        consequuntur error repudiandae numquam deserunt quisquam repellat libero
-        asperiores earum nam nobis, culpa ratione quam perferendis esse,
-        cupiditate neque quas!
-      </p>
-      <ng-template #footer>
-        <div class="flex gap-4 mt-1">
-          <p-button
-            label="Cancel"
-            severity="secondary"
-            class="w-full"
-            [outlined]="true"
-            styleClass="w-full"
-          />
-          <p-button label="Save" class="w-full" styleClass="w-full" />
-        </div>
-      </ng-template>
-    </p-card>
+<div class="p-6 flex justify-center bg-gray-800">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
+    <sm-blog-card
+      text="Your ads could be here"
+      subtitle="And Kaiser is the worst"
+      title="Why Akashic is the best driver of all time"
+      image="https://i0.wp.com/syndicate-motorsport.com/wp-content/uploads/2022/07/July-Contest-9.jpg?resize=1536%2C864&ssl=1"
+    />
+    <sm-blog-card
+      text="Your ads could be here"
+      subtitle="The people just speak a weird language"
+      title="10 reasons why France is super cool"
+      image="https://i0.wp.com/syndicate-motorsport.com/wp-content/uploads/2022/06/Akashic_Photo_Comp.jpg?resize=1536%2C864&ssl=1"
+    />
+    <sm-blog-card
+      text="Your ads could be here"
+      subtitle="Part 1/100"
+      title="200 reasons why Germany is better than Austria"
+      image="https://i0.wp.com/syndicate-motorsport.com/wp-content/uploads/2022/08/August-Screenshot-Comp-P2.jpg?resize=1536%2C864&ssl=1"
+    />
   </div>
 </div>

@@ -1,0 +1,34 @@
+<div class="w-full p-4">
+    <p-table [value]="events" class="w-full" stripedRows>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Event Name</th>
+          <th>Track</th>
+          <th>Car</th>
+          <th>Sim</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-event>
+        <tr>
+          <td>{{ event.eventName }}</td>
+          <td>{{ event.track }}</td>
+          <td>{{ event.car }}</td>
+          <td>{{ event.sim }}</td>
+          <td>{{ event.date | date : "dd.MM.yyyy 'at' hh:mm a OOO" }}</td>
+          <td>
+            <a
+              href="https://discord.gg/v7bbYHSY3p?event=1347884719890501693"
+              target="_blank"
+              severity="secondary"
+              rel="noopener noreferrer"
+              class="p-button secondary font-bold"
+            >
+              Sign up now!
+            </a>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>

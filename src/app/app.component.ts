@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuItem } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { AvatarModule } from 'primeng/avatar';
     InputTextModule,
     RouterOutlet,
     AvatarModule,
-  ],
+    FooterComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

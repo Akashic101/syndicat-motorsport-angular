@@ -2,13 +2,19 @@
   <p-toolbar>
     <ng-template #start>
       <div class="flex items-center space-x-3">
-        <img src="assets/logos/cropped-Syndicate_Logo_Clock.png" alt="Logo" class="h-16 w-16" />
+        <img
+          src="assets/logos/cropped-Syndicate_Logo_Clock.png"
+          alt="Logo"
+          class="h-16 w-16"
+        />
         <span class="text-xl font-bold">Syndicate Motorsport</span>
       </div>
     </ng-template>
     <ng-template #center>
       <nav class="flex space-x-6">
-        <a href="#" class="text-gray-100 hover:text-blue-300">Events and Leagues</a>
+        <a href="#" class="text-gray-100 hover:text-blue-300"
+          >Events and Leagues</a
+        >
         <a href="#" class="text-gray-100 hover:text-blue-300">Drivers</a>
         <a href="#" class="text-gray-100 hover:text-blue-300">Lap Records</a>
         <a href="#" class="text-gray-100 hover:text-blue-300">Media</a>
@@ -18,12 +24,12 @@
     </ng-template>
     <ng-template #end>
       @if (isLoggedIn) {
-        <div class="flex items-center space-x-4">
-          <h1 class="text-2xl font-bold m-3">PirateLaserBeam</h1>
-          <p-avatar label="P" size="xlarge" />
-        </div>
+      <div class="flex items-center space-x-4">
+        <h1 class="text-2xl font-bold m-3">PirateLaserBeam</h1>
+        <p-avatar label="P" size="xlarge" />
+      </div>
       } @else {
-        <p-button label="Login" class="p-button-primary"></p-button>
+      <p-button label="Login" class="p-button-primary"></p-button>
       }
     </ng-template>
   </p-toolbar>
@@ -32,6 +38,8 @@
       <div>
         <router-outlet />
       </div>
+
+      <sm-footer />
     </main>
   </div>
 </div>

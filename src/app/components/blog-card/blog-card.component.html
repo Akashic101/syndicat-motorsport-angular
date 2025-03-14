@@ -1,0 +1,17 @@
+<p-card [style]="{ overflow: 'hidden' }">
+  <ng-template pTemplate="header">
+    <img alt="Card" class="w-full" [src]="image()" />
+  </ng-template>
+  <ng-template pTemplate="title">{{ title() }}</ng-template>
+  <ng-template pTemplate="subtitle">
+    <p>{{ subtitle() }}</p>
+  </ng-template>
+  <div>
+    <p>{{ text() }}</p>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="flex gap-4 mt-1">
+      <p-button label="Read" class="w-full" styleClass="w-full" />
+    </div>
+  </ng-template>
+</p-card>
