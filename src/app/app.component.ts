@@ -1,22 +1,24 @@
 import { RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Toolbar } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenuItem } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
-import { FooterComponent } from "./components/footer/footer.component";
+import { FooterComponent } from './components/footer/footer.component';
+import { CommonModule } from '@angular/common';
+import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-root',
   imports: [
-    Toolbar,
     ButtonModule,
     InputTextModule,
     RouterOutlet,
     AvatarModule,
-    FooterComponent
-],
+    FooterComponent,
+    CommonModule,
+    MenubarModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -30,11 +32,27 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'Update',
+        label: 'Events and Leagues',
         icon: 'pi pi-refresh',
       },
       {
-        label: 'Delete',
+        label: 'Drivers',
+        icon: 'pi pi-times',
+      },
+      {
+        label: 'Lap Records',
+        icon: 'pi pi-times',
+      },
+      {
+        label: 'Media',
+        icon: 'pi pi-times',
+      },
+      {
+        label: 'Patreon',
+        icon: 'pi pi-times',
+      },
+      {
+        label: 'Merch',
         icon: 'pi pi-times',
       },
     ];

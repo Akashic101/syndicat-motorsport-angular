@@ -13,7 +13,7 @@ export class EventTableComponent {
     {
       eventName: 'Formula 1',
       track: 'Monaco',
-      car: 'Ferrari',
+      car: 'Ferrari SF70H',
       sim: 'iRacing',
       date: new Date('2025-03-20'),
     },
