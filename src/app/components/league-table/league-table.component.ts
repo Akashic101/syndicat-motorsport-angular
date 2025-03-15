@@ -7,69 +7,129 @@ import { InputIconModule } from 'primeng/inputicon';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
 import { SelectModule } from 'primeng/select';
+import { LeagueCardComponent } from '../league-card/league-card.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { IftaLabelModule } from 'primeng/iftalabel';
 
 @Component({
   selector: 'sm-league-table',
   standalone: true,
-  imports: [CommonModule, TableModule, TagModule, IconFieldModule, InputIconModule, MultiSelectModule, FormsModule, SelectModule],
+  imports: [
+    CommonModule,
+    TableModule,
+    TagModule,
+    IconFieldModule,
+    InputIconModule,
+    MultiSelectModule,
+    FormsModule,
+    SelectModule,
+    LeagueCardComponent,
+    CheckboxModule,
+    InputTextModule,
+    DropdownModule,
+    IftaLabelModule,
+  ],
   templateUrl: './league-table.component.html',
-  styleUrls: ['./league-table.component.scss']
+  styleUrls: ['./league-table.component.scss'],
 })
 export class LeagueTableComponent {
-  // Sample league data
   leagues = [
     {
-      id: 1,
-      name: 'Formula 1 2025',
-      cars: 'Ferrari, Mercedes, Red Bull',
+      name: 'IndyCar League - Season 1',
       sim: 'Assetto Corsa',
-      rounds: 10,
-      drivers: 20,
-      status: 'active'
+      freeSpots: 4,
+      rounds: 8,
+      startDate: new Date('2025-01-12'),
+      endDate: new Date('2025-02-15'),
+      image:
+        'https://i0.wp.com/syndicate-motorsport.com/wp-content/uploads/2022/07/July-Contest-9.jpg?resize=1536%2C864&ssl=1',
     },
     {
-      id: 2,
-      name: 'IndyCar 2025',
-      cars: 'Chevrolet, Honda',
-      sim: 'iRacing',
-      rounds: 15,
-      drivers: 18,
-      status: 'planned'
+      name: 'Radical League - Season 3',
+      sim: 'Assetto Corsa',
+      freeSpots: 2,
+      rounds: 6,
+      startDate: new Date('2025-03-15'),
+      endDate: new Date('2025-04-24'),
+      image:
+        'https://www.thespeedjournal.com/wp-content/uploads/2022/12/radical-motorsport-sr3-xxr-03.jpg',
     },
     {
-      id: 3,
-      name: 'MotoGP 2025',
-      cars: 'Yamaha, Honda, Ducati',
-      sim: 'RFactor 2',
+      name: 'Rallye League - Season 1',
+      sim: 'Richard Burns Rallye',
+      freeSpots: 2,
+      rounds: 6,
+      startDate: new Date('2025-04-5'),
+      endDate: new Date('2025-06-1'),
+      image: 'https://i.ytimg.com/vi/BHK3e_Xr4GQ/maxresdefault.jpg',
+    },
+    {
+      name: '1976 League - Season 2',
+      sim: 'Assetto Corsa',
+      freeSpots: 0,
       rounds: 12,
-      drivers: 22,
-      status: 'completed'
-    }
+      startDate: new Date('2025-06-23'),
+      endDate: new Date('2025-07-5'),
+      image: 'https://i.ytimg.com/vi/0XXkPGnau6Q/maxresdefault.jpg',
+    },
   ];
 
-  // The statuses that will appear in the dropdown filter
   statuses = [
+    { label: 'All', value: '' },
     { label: 'Planned', value: 'planned' },
-    { label: 'Active', value: 'active' },
-    { label: 'Completed', value: 'completed' }
+    { label: 'Running', value: 'running' },
+    { label: 'Completed', value: 'completed' },
   ];
 
-  // Loading state for the table
-  loading = false;
+  searchName: string = '';
+  searchSim: string = '';
+  statusFilter: string = '';
 
-  // Global search filtering
-  dt: any;
-  getSeverity(status: string): 'success' | 'info' | 'warn' | 'danger' | 'contrast' | undefined {
-    switch (status) {
-      case 'active':
-        return 'success';  // 'active' status maps to 'success' severity
-      case 'completed':
-        return 'warn';     // 'completed' status maps to 'warn' severity (not 'warning')
-      case 'planned':
-        return 'info';     // 'planned' status maps to 'info' severity
-      default:
-        return 'info';     // default to 'info' severity
+  getLeagueStatus(league: {
+    name?: string;
+    sim?: string;
+    freeSpots?: number;
+    rounds?: number;
+    startDate: any;
+    endDate: any;
+    image?: string;
+  }): string {
+    const currentDate = new Date();
+    if (league.endDate < currentDate) {
+      return 'completed';
+    } else if (
+      league.startDate <= currentDate &&
+      league.endDate >= currentDate
+    ) {
+      return 'running';
+    } else {
+      return 'planned';
     }
+  }
+
+  get filteredLeagues() {
+    return this.leagues.filter((league) => {
+      // Check if league name matches search term
+      const matchesName = this.searchName
+        ? league.name.toLowerCase().includes(this.searchName.toLowerCase())
+        : true;
+  
+      // Check if sim matches search term
+      const matchesSim = this.searchSim
+        ? league.sim.toLowerCase().includes(this.searchSim.toLowerCase())
+        : true;
+
+  
+      // Check if the league's status matches the selected filter
+      const leagueStatus = this.getLeagueStatus(league);  // Get status using your existing logic
+      const matchesStatus = this.statusFilter
+        ? leagueStatus === this.statusFilter
+        : true;
+  
+      return matchesName && matchesSim && matchesStatus;
+    });
   }
   
 }

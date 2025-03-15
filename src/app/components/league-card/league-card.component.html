@@ -1,0 +1,36 @@
+<p-card [style]="{ overflow: 'hidden' }">
+  <ng-template pTemplate="header">
+    <img alt="Card" class="w-full" src="{{ image() }}" />
+  </ng-template>
+
+  <ng-template pTemplate="title">
+    <div class="flex justify-between items-center">
+      <span>{{ title() }}</span>
+      <p-tag *ngIf="leagueStatus === 'planned'" class="text-end" severity="info">Planned</p-tag>
+      <p-tag *ngIf="leagueStatus === 'running'" class="text-end" severity="success">Running</p-tag>
+      <p-tag *ngIf="leagueStatus === 'completed'" class="text-end" severity="danger">Completed</p-tag>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="subtitle">
+    {{ sim() }}
+  </ng-template>
+
+  <div class="flex justify-between">
+    <p class="text-sm text-start">
+      {{ rounds() }} rounds - {{ freeSpots() }} free spots
+    </p>
+    <p class="text-sm text-end">{{ startDate() | date }} - {{ endDate() | date }}</p>
+  </div>
+
+  <ng-template #footer>
+    <div class="flex gap-4 mt-1">
+      <p-button
+        label="Sign up now!"
+        class="w-full"
+        [disabled]="!isSignUpActive"
+        styleClass="w-full"
+      />
+    </div>
+  </ng-template>
+</p-card>
