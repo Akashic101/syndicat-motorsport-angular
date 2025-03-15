@@ -1,4 +1,4 @@
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -14,10 +14,12 @@ import { MenubarModule } from 'primeng/menubar';
     ButtonModule,
     InputTextModule,
     RouterOutlet,
+    RouterModule,
     AvatarModule,
     FooterComponent,
     CommonModule,
     MenubarModule,
+    RouterLink
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -29,11 +31,14 @@ export class AppComponent implements OnInit {
 
   isLoggedIn: boolean = true;
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.items = [
       {
         label: 'Events and Leagues',
         icon: 'pi pi-calendar',
+        route: '/events-and-leagues',
       },
       {
         label: 'Drivers',
