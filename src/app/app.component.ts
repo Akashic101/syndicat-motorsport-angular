@@ -33,27 +33,23 @@ export class AppComponent implements OnInit {
     this.items = [
       {
         label: 'Events and Leagues',
-        icon: 'pi pi-refresh',
+        icon: 'pi pi-calendar',
       },
       {
         label: 'Drivers',
-        icon: 'pi pi-times',
+        icon: 'pi pi-user',
       },
       {
         label: 'Lap Records',
-        icon: 'pi pi-times',
+        icon: 'pi pi-clock',
       },
       {
         label: 'Media',
-        icon: 'pi pi-times',
+        icon: 'pi pi-images',
       },
       {
-        label: 'Patreon',
-        icon: 'pi pi-times',
-      },
-      {
-        label: 'Merch',
-        icon: 'pi pi-times',
+        label: 'Support us',
+        icon: 'pi pi-info-circle',
       },
     ];
   }

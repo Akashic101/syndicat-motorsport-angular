@@ -1,4 +1,4 @@
-<p-menubar [model]="items">
+<p-menubar [model]="items" breakpoint="1096px">
   <ng-template #start>
     <div class="flex items-center space-x-3">
       <img
@@ -12,7 +12,7 @@
   <ng-template #end>
     @if (isLoggedIn) {
     <div class="flex items-center space-x-4">
-      <h1 class="hidden lg:block text-2xl font-bold m-3">PirateLaserBeam</h1>
+      <h1 class="hidden xl:block text-2xl font-bold m-3">PirateLaserBeam</h1>
 
       <p-avatar label="P" size="xlarge" />
     </div>
@@ -26,7 +26,6 @@
     <div>
       <router-outlet />
     </div>
-
     <sm-footer />
   </main>
 </div>
