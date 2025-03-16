@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Drivers',
         icon: 'pi pi-user',
+        route: '/drivers',
       },
       {
         label: 'Lap Records',

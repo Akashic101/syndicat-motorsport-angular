@@ -33,4 +33,17 @@ export class LeagueCardComponent {
   get isSignUpActive(): boolean {
     return this.leagueStatus === 'planned' && this.freeSpots() > 0;
   }
+
+  getButtonLabel(): string {
+    switch (this.leagueStatus) {
+      case 'planned':
+        return 'Sign up now!';
+      case 'running':
+        return 'Show standings';
+      case 'completed':
+        return 'Show results';
+      default:
+        return '';
+    }
+  }
 }

@@ -1,0 +1,61 @@
+<p-table
+  #dt
+  [value]="drivers"
+  dataKey="name"
+  [rows]="10"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [loading]="loading"
+  [paginator]="true"
+  [globalFilterFields]="['name', 'licence']"
+  [tableStyle]="{ 'min-width': '75rem' }"
+>
+  <ng-template #header>
+    <tr>
+      <p-columnFilter
+        type="text"
+        field="name"
+        placeholder="Search by name"
+        ariaLabel="Filter Name"
+      ></p-columnFilter>
+    </tr>
+    <tr>
+      <th pSortableColumn="name" style="width: 20%">
+        Name <p-sortIcon field="name" />
+      </th>
+      <th pSortableColumn="starts" style="width: 15%">
+        Starts <p-sortIcon field="starts" />
+      </th>
+      <th pSortableColumn="podiums" style="width: 15%">
+        Podiums <p-sortIcon field="podiums" />
+      </th>
+      <th pSortableColumn="wins" style="width: 15%">
+        Wins <p-sortIcon field="wins" />
+      </th>
+      <th pSortableColumn="licence" style="width: 15%">
+        Licence <p-sortIcon field="license" />
+      </th>
+      <th pSortableColumn="safetyRating" style="width: 20%">
+        Safety Rating <p-sortIcon field="safetyRating" />
+      </th>
+    </tr>
+  </ng-template>
+
+  <!-- Table Body -->
+  <ng-template #body let-driver>
+    <tr>
+      <td>{{ driver.name }}</td>
+      <td>{{ driver.starts }}</td>
+      <td>{{ driver.podiums }}</td>
+      <td>{{ driver.wins }}</td>
+      <td>{{ driver.licence }}</td>
+      <td>{{ driver.safetyRating }}</td>
+    </tr>
+  </ng-template>
+
+  <!-- Empty Table Message -->
+  <ng-template #emptymessage>
+    <tr>
+      <td colspan="6">No drivers found.</td>
+    </tr>
+  </ng-template>
+</p-table>
