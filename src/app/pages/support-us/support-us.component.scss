@@ -1,0 +1,46 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+// Card hover effects
+.bg-white {
+    transition: transform 0.3s ease-in-out;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+// Social button hover animations
+a[class*="bg-"] {
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// Server cards
+.server-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// Links
+a {
+    transition: all 0.2s ease;
+    
+    &:hover {
+        text-decoration: none;
+        opacity: 0.9;
+    }
+}

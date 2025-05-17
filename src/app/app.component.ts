@@ -56,6 +56,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Support us',
         icon: 'pi pi-info-circle',
+        route: '/support-us',
       },
     ];
   }
