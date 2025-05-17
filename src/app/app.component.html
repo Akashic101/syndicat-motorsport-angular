@@ -47,18 +47,6 @@
           </div>
         </ng-template>
       </ng-template>
-      <ng-template #end>
-        @if (isLoggedIn) {
-        <div class="flex items-center space-x-4">
-          <h1 class="hidden xl:block text-2xl font-bold m-3">
-            PirateLaserBeam
-          </h1>
-          <p-avatar label="P" size="xlarge" />
-        </div>
-        } @else {
-        <p-button label="Login" class="p-button-primary"></p-button>
-        }
-      </ng-template>
     </p-menubar>
   </div>
   <div class="grow"><router-outlet /></div>

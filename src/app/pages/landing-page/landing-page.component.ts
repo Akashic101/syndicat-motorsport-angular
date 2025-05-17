@@ -10,7 +10,16 @@ import { BlogCardComponent } from "../../components/blog-card/blog-card.componen
 
 @Component({
   selector: 'sm-landing-page',
-  imports: [TableModule, CommonModule, ButtonModule, CardModule, EventTableComponent, CtaComponent, StatFieldComponent, BlogCardComponent],
+  imports: [
+    TableModule,
+    CommonModule,
+    ButtonModule,
+    CardModule,
+    EventTableComponent,
+    CtaComponent,
+    StatFieldComponent,
+    BlogCardComponent
+  ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })

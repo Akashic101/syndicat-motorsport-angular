@@ -1,36 +1,82 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
+import { EventService, Event } from '../../services/event.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'sm-event-table',
-  imports: [CommonModule, TableModule],
-  templateUrl: './event-table.component.html',
-  styleUrl: './event-table.component.scss',
+  standalone: true,
+  imports: [CommonModule, TableModule, ProgressSpinnerModule],
+  template: `
+    <div class="card">
+      @if (loading) {
+        <div class="flex justify-content-center">
+          <p-progressSpinner />
+        </div>
+      } @else if (error) {
+        <div class="text-red-500">
+          Error loading events. Please try again later.
+        </div>
+      } @else {
+        <p-table [value]="events" [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Event</th>
+              <th>Track</th>
+              <th>Car</th>
+              <th>Sim</th>
+              <th>Date</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-event>
+            <tr>
+              <td>{{event.eventName}}</td>
+              <td>{{event.track}}</td>
+              <td>{{event.car}}</td>
+              <td>{{event.sim}}</td>
+              <td>{{event.date | date:'medium'}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      }
+    </div>
+  `,
+  styles: [`
+    :host ::ng-deep .p-progressspinner {
+      width: 50px;
+      height: 50px;
+    }
+    :host ::ng-deep .card {
+      padding: 2rem;
+    }
+  `]
 })
-export class EventTableComponent {
-  events = [
-    {
-      eventName: 'Formula 1',
-      track: 'Monaco',
-      car: 'Ferrari SF70H',
-      sim: 'iRacing',
-      date: new Date('2025-03-20'),
-    },
-    {
-      eventName: 'GT Championship',
-      track: 'Spa Francorchamps',
-      car: 'Porsche 911',
-      sim: 'Assetto Corsa',
-      date: new Date('2025-03-25'),
-    },
-    {
-      eventName: 'Rally Cross',
-      track: 'Lydden Hill',
-      car: 'Subaru WRX',
-      sim: 'Dirt Rally 2.0',
-      date: new Date('2025-04-05'),
-    },
+export class EventTableComponent implements OnInit {
+  events: Event[] = [];
+  loading = true;
+  error = false;
+
+  constructor(private eventService: EventService) {}
+
+  ngOnInit() {
+    this.loadEvents();
+  }
+
+  private loadEvents() {
+    this.loading = true;
+    this.error = false;
     
-  ];
+    this.eventService.getEvents().subscribe({
+      next: (events) => {
+        this.events = events;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error loading events:', err);
+        this.error = true;
+        this.loading = false;
+      }
+    });
+  }
 }

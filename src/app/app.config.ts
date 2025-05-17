@@ -6,6 +6,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { definePreset } from '@primeng/themes';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 const SmTheme = definePreset(Aura, {
     semantic: {
@@ -26,10 +27,16 @@ const SmTheme = definePreset(Aura, {
 });
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideAnimationsAsync(),
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
     providePrimeNG({
         theme: {
             preset: SmTheme
         }
-    })]
+    }),
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 };
