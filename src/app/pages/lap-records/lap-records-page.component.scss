@@ -1,0 +1,11 @@
+.card {
+  padding: 2rem;
+}
+
+:host ::ng-deep .p-table {
+  font-size: 0.95rem;
+}
+
+:host ::ng-deep .p-inputtext {
+  min-width: 250px;
+} 

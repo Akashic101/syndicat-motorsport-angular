@@ -1,0 +1,54 @@
+<div class="card">
+  <h2 class="text-2xl font-bold mb-4">Lap Records</h2>
+  <div class="mb-4 flex filter-bar items-center">
+    <p-multiSelect
+      [options]="availablePlatforms"
+      [(ngModel)]="selectedPlatforms"
+      (onChange)="onPlatformChange()"
+      optionLabel="label"
+      optionValue="value"
+      [showToggleAll]="true"
+      placeholder="Select Platforms"
+      display="chip"
+      class="w-full md:w-40"
+    ></p-multiSelect>
+    <input pInputText [(ngModel)]="filterTrack" placeholder="Track" class="w-full md:w-40" />
+    <input pInputText [(ngModel)]="filterCar" placeholder="Car" class="w-full md:w-40" />
+    <input pInputText [(ngModel)]="filterDriver" placeholder="Driver" class="w-full md:w-40" />
+  </div>
+  <p-table
+    #table
+    [value]="filteredRecords"
+    [paginator]="true"
+    [rows]="25"
+    [rowsPerPageOptions]="[10, 25, 50, 100]"
+    [loading]="loading"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [sortMode]="'multiple'"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="Track">Track <p-sortIcon field="Track"></p-sortIcon></th>
+        <th pSortableColumn="Car">Car <p-sortIcon field="Car"></p-sortIcon></th>
+        <th pSortableColumn="Platform">Platform <p-sortIcon field="Platform"></p-sortIcon></th>
+        <th pSortableColumn="Driver">Driver <p-sortIcon field="Driver"></p-sortIcon></th>
+        <th pSortableColumn="BestLapNum">Best Lap <p-sortIcon field="BestLapNum"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td>{{ row.Track }}</td>
+        <td>{{ row.Car }}</td>
+        <td>{{ row.Platform }}</td>
+        <td>{{ row.Driver }}</td>
+        <td>{{ row.formattedBestLap }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5">No lap records found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div *ngIf="error" class="text-red-500 mt-4">{{ error }}</div>
+</div> 

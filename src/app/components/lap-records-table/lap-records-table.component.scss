@@ -1,0 +1,48 @@
+.card {
+  padding: 2rem;
+}
+
+:host ::ng-deep .p-table {
+  font-size: 0.95rem;
+}
+
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-multiselect {
+  min-width: 180px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #23272f;
+  color: #f1f5f9;
+  border: 1px solid #374151;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .p-inputtext:focus,
+:host ::ng-deep .p-multiselect:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px #38bdf880;
+  outline: none;
+}
+
+:host ::ng-deep .p-multiselect {
+  background: #23272f;
+}
+
+:host ::ng-deep .p-multiselect-label {
+  color: #f1f5f9;
+}
+
+:host ::ng-deep .p-multiselect-panel {
+  background: #23272f;
+  color: #f1f5f9;
+}
+
+:host ::ng-deep .p-multiselect-item.p-highlight {
+  background: #38bdf8;
+  color: #23272f;
+}
+
+.filter-bar {
+  gap: 1rem;
+  flex-wrap: wrap;
+} 

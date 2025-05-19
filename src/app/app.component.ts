@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Lap Records',
         icon: 'pi pi-clock',
+        route: '/lap-records',
       },
       {
         label: 'Media',
