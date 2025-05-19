@@ -1,10 +1,10 @@
 <div class="container mx-auto px-4 py-8">
     <!-- Support Section -->
     <section class="mb-12">
-        <h1 class="text-4xl font-bold mb-6">Support Syndicate Motorsport</h1>
+        <h1 class="text-4xl font-bold mb-6 text-theme-primary">Support Syndicate Motorsport</h1>
         
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <p class="text-lg mb-6">
+        <div class="bg-theme-secondary rounded-lg shadow-lg p-6 mb-8">
+            <p class="text-lg mb-6 text-theme-secondary">
                 As many of you know, we run our events on dedicated servers along with hosting a website for stats tracking. 
                 We don't pass the cost of this infrastructure onto our drivers and never intend to. Some of you however have 
                 voluntarily expressed an interest in directly supporting the community via donations or contributions to enable 
@@ -14,27 +14,27 @@
             <!-- Social Links -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
                 <a [href]="socialLinks.patreon" target="_blank" 
-                   class="flex items-center justify-center gap-2 p-4 bg-[#FF424D] text-white rounded-lg hover:bg-opacity-90 transition-all">
+                   class="flex items-center justify-center gap-2 p-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all">
                     <fa-icon [icon]="faPatreon" class="text-xl"></fa-icon>
                     <span>Support on Patreon</span>
                 </a>
                 <a [href]="socialLinks.discord" target="_blank" 
-                   class="flex items-center justify-center gap-2 p-4 bg-[#5865F2] text-white rounded-lg hover:bg-opacity-90 transition-all">
+                   class="flex items-center justify-center gap-2 p-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all">
                     <fa-icon [icon]="faDiscord" class="text-xl"></fa-icon>
                     <span>Join Discord</span>
                 </a>
                 <a [href]="socialLinks.youtube" target="_blank" 
-                   class="flex items-center justify-center gap-2 p-4 bg-[#FF0000] text-white rounded-lg hover:bg-opacity-90 transition-all">
+                   class="flex items-center justify-center gap-2 p-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all">
                     <fa-icon [icon]="faYoutube" class="text-xl"></fa-icon>
                     <span>YouTube Channel</span>
                 </a>
                 <a [href]="socialLinks.instagram" target="_blank" 
-                   class="flex items-center justify-center gap-2 p-4 bg-[#E4405F] text-white rounded-lg hover:bg-opacity-90 transition-all">
+                   class="flex items-center justify-center gap-2 p-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all">
                     <fa-icon [icon]="faInstagram" class="text-xl"></fa-icon>
                     <span>Follow on Instagram</span>
                 </a>
                 <a [href]="socialLinks.bluesky" target="_blank" 
-                   class="flex items-center justify-center gap-2 p-4 bg-[#0085FF] text-white rounded-lg hover:bg-opacity-90 transition-all">
+                   class="flex items-center justify-center gap-2 p-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all">
                     <fa-icon [icon]="faBluesky" class="text-xl"></fa-icon>
                     <span>Follow on BlueSky</span>
                 </a>
@@ -44,29 +44,29 @@
         <!-- Patreon Tiers -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div *ngFor="let tier of patreonTiers" 
-                 class="bg-white rounded-lg shadow-lg p-6 relative hover:shadow-xl transition-shadow"
+                 class="bg-theme-secondary rounded-lg shadow-lg p-6 relative hover:shadow-xl transition-shadow"
                  [class.border-2]="tier.recommended"
-                 [class.border-[#FF424D]]="tier.recommended">
+                 [class.border-sky-500]="tier.recommended">
                 <div *ngIf="tier.recommended" 
-                     class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#FF424D] text-white px-4 py-1 rounded-full text-sm">
+                     class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-sky-500 text-white px-4 py-1 rounded-full text-sm">
                     Recommended
                 </div>
-                <h3 class="text-2xl font-bold mb-2">{{tier.name}}</h3>
+                <h3 class="text-2xl font-bold mb-2 text-theme-primary">{{tier.name}}</h3>
                 <div class="flex items-baseline mb-4">
-                    <span class="text-3xl font-bold">€{{tier.price}}</span>
-                    <span class="text-gray-600 ml-2">/ month</span>
-                    <span class="text-sm text-gray-500 ml-2">(plus VAT)</span>
+                    <span class="text-3xl font-bold text-theme-primary">€{{tier.price}}</span>
+                    <span class="text-theme-secondary ml-2">/ month</span>
+                    <span class="text-sm text-theme-secondary ml-2">(plus VAT)</span>
                 </div>
-                <p class="text-gray-600 mb-6">{{tier.description}}</p>
+                <p class="text-theme-secondary mb-6">{{tier.description}}</p>
                 <ul class="space-y-3 mb-6">
                     <li *ngFor="let benefit of tier.benefits" 
                         class="flex items-start gap-2">
-                        <fa-icon [icon]="faCheck" class="text-green-500 mt-1"></fa-icon>
-                        <span>{{benefit}}</span>
+                        <fa-icon [icon]="faCheck" class="text-sky-500 mt-1"></fa-icon>
+                        <span class="text-theme-secondary">{{benefit}}</span>
                     </li>
                 </ul>
                 <a [href]="socialLinks.patreon" target="_blank" 
-                   class="block text-center bg-[#FF424D] text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition-all">
+                   class="block text-center bg-sky-500 text-white py-2 px-4 rounded-lg hover:bg-sky-600 transition-all">
                     Join Now
                 </a>
             </div>
@@ -75,26 +75,26 @@
 
     <!-- Servers Section -->
     <section>
-        <h2 class="text-3xl font-bold mb-6">Our Racing Servers</h2>
-        <p class="text-lg mb-6">We currently run the following servers for our events:</p>
+        <h2 class="text-3xl font-bold mb-6 text-theme-primary">Our Racing Servers</h2>
+        <p class="text-lg mb-6 text-theme-secondary">We currently run the following servers for our events:</p>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div *ngFor="let server of servers" 
-                 class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 class="text-2xl font-bold mb-3">{{server.name}}</h3>
-                <p class="text-gray-600 mb-4">{{server.description}}</p>
+                 class="bg-theme-secondary rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <h3 class="text-2xl font-bold mb-3 text-theme-primary">{{server.name}}</h3>
+                <p class="text-theme-secondary mb-4">{{server.description}}</p>
                 
                 <div class="space-y-3">
                     <a [href]="server.liveTiming" target="_blank" 
-                       class="block text-blue-600 hover:text-blue-800">
+                       class="block text-sky-400 hover:text-sky-300">
                         Live Timing
                     </a>
                     <a [href]="server.joinLink" target="_blank" 
-                       class="block text-blue-600 hover:text-blue-800">
+                       class="block text-sky-400 hover:text-sky-300">
                         Join Server (Requires CM)
                     </a>
-                    <p class="text-sm text-gray-500">
-                        Primary contact: <span class="font-semibold">{{server.contact}}</span>
+                    <p class="text-sm text-theme-secondary">
+                        Primary contact: <span class="font-semibold text-theme-primary">{{server.contact}}</span>
                     </p>
                 </div>
             </div>
