@@ -1,5 +1,5 @@
 import { TableModule } from 'primeng/table';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -7,6 +7,7 @@ import { EventTableComponent } from "../../components/event-table/event-table.co
 import { CtaComponent } from "../../components/cta/cta.component";
 import { StatFieldComponent } from "../../components/stat-field/stat-field.component";
 import { BlogCardComponent } from "../../components/blog-card/blog-card.component";
+import { DiscordService } from '../../services/discord.service';
 
 @Component({
   selector: 'sm-landing-page',
@@ -23,6 +24,14 @@ import { BlogCardComponent } from "../../components/blog-card/blog-card.componen
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
+  discordMembers: number | null = null;
 
+  constructor(private discordService: DiscordService) {}
+
+  ngOnInit() {
+    this.discordService.getMemberCount().subscribe(count => {
+      this.discordMembers = count;
+    });
+  }
 }
