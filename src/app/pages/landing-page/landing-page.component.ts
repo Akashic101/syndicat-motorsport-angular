@@ -27,6 +27,20 @@ import { DiscordService } from '../../services/discord.service';
 export class LandingPageComponent implements OnInit {
   discordMembers: number | null = null;
 
+  get yearsOfExperience(): number {
+    const start = new Date(2020, 9, 1); // October is month 9 (0-indexed)
+    const now = new Date();
+    let years = now.getFullYear() - start.getFullYear();
+    // If before October 1st this year, subtract 1
+    if (
+      now.getMonth() < 9 ||
+      (now.getMonth() === 9 && now.getDate() < 1)
+    ) {
+      years--;
+    }
+    return years;
+  }
+
   constructor(private discordService: DiscordService) {}
 
   ngOnInit() {
