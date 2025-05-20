@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { 
-  faPatreon, 
-  faDiscord, 
-  faYoutube, 
-  faInstagram, 
-  faBluesky
-} from '@fortawesome/free-brands-svg-icons';
+import { faPatreon, faDiscord, faYoutube, faInstagram, faBluesky } from '@fortawesome/free-brands-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface Server {
