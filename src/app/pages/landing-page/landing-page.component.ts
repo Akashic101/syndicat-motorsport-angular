@@ -6,7 +6,6 @@ import { CardModule } from 'primeng/card';
 import { EventTableComponent } from "../../components/event-table/event-table.component";
 import { CtaComponent } from "../../components/cta/cta.component";
 import { StatFieldComponent } from "../../components/stat-field/stat-field.component";
-import { BlogCardComponent } from "../../components/blog-card/blog-card.component";
 import { DiscordService } from '../../services/discord.service';
 
 @Component({
@@ -18,8 +17,7 @@ import { DiscordService } from '../../services/discord.service';
     CardModule,
     EventTableComponent,
     CtaComponent,
-    StatFieldComponent,
-    BlogCardComponent
+    StatFieldComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
