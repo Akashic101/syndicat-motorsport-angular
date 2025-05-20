@@ -2,14 +2,14 @@
   <div class="z-50">
     <p-menubar [model]="items" breakpoint="1096px">
       <ng-template #start>
-        <div class="flex items-center space-x-3">
+        <a [routerLink]="'/'" class="flex items-center space-x-3">
           <img
             src="assets/logos/cropped-Syndicate_Logo_Clock.png"
             alt="Logo"
             class="h-16 w-16"
           />
           <span class="text-xl font-bold">Syndicate Motorsport</span>
-        </div>
+        </a>
       </ng-template>
       <ng-template #item let-item>
         <ng-container *ngIf="item.route; else urlRef">
