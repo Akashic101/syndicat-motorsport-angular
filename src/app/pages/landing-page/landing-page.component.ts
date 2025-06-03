@@ -1,9 +1,7 @@
-import { TableModule } from 'primeng/table';
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewContainerRef, ViewChild } from '@angular/core';
+import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { EventTableComponent } from "../../components/event-table/event-table.component";
 import { CtaComponent } from "../../components/cta/cta.component";
 import { StatFieldComponent } from "../../components/stat-field/stat-field.component";
 import { DiscordService } from '../../services/discord.service';
@@ -13,13 +11,11 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'sm-landing-page',
   imports: [
-    TableModule,
-    CommonModule,
     ButtonModule,
     CardModule,
-    EventTableComponent,
     CtaComponent,
-    StatFieldComponent
+    StatFieldComponent,
+    NgComponentOutlet
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
@@ -27,6 +23,9 @@ import { map } from 'rxjs/operators';
 export class LandingPageComponent implements OnInit {
   discordMembers: number | null = null;
   totalLapRecords: number | null = null;
+
+  @ViewChild('eventTableContainer', { read: ViewContainerRef }) eventTableContainer!: ViewContainerRef;
+  eventTableComponent: any;
 
   get yearsOfExperience(): number {
     const start = new Date(2020, 9, 1); // October is month 9 (0-indexed)
@@ -44,7 +43,7 @@ export class LandingPageComponent implements OnInit {
 
   constructor(private discordService: DiscordService, private http: HttpClient) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.discordService.getMemberCount().subscribe(count => {
       this.discordMembers = count;
     });
@@ -55,5 +54,9 @@ export class LandingPageComponent implements OnInit {
     ).subscribe(count => {
       this.totalLapRecords = count;
     });
+
+    // Dynamically import EventTableComponent
+    const { EventTableComponent } = await import('../../components/event-table/event-table.component');
+    this.eventTableComponent = EventTableComponent;
   }
 }
