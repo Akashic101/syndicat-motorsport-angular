@@ -35,7 +35,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
               <td>{{event.track}}</td>
               <td>{{event.car}}</td>
               <td>{{event.sim}}</td>
-              <td>{{event.date | date:'medium'}}</td>
+              <td>{{event.date | date:'medium'}}  BST (UTC+1)</td>
             </tr>
           </ng-template>
         </p-table>

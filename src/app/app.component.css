@@ -1,0 +1,32 @@
+:host ::ng-deep .p-menubar .p-menubar-end {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .p-menubar .p-menubar-end .p-button {
+  /* Ensure the button styles match the landing page button */
+  background-color: #3b82f6 !important; /* Use blue-500 color */
+  color: #ffffff !important; /* White text color */
+  border-color: #3b82f6 !important; /* Match border color */
+  padding: 0.5rem 1rem !important; /* Adjust padding to match */
+  font-size: 0.875rem !important; /* text-sm */
+  font-weight: 600 !important; /* font-semibold */
+  border-radius: 0.25rem !important; /* rounded */
+  transition: background-color 0.3s ease-in-out !important; /* transition duration-300 */
+}
+
+:host ::ng-deep .p-menubar .p-menubar-end .p-button:hover {
+    background-color: #2563eb !important; /* hover:bg-blue-700 */
+    border-color: #2563eb !important;
+}
+
+:host ::ng-deep .p-menubar .p-menubar-end .p-button .pi {
+    font-size: 1.5rem !important; /* Adjust icon size if necessary */
+    margin-right: 0.5rem !important; /* Adjust spacing if necessary */
+}
+
+/* You might need to adjust margin or padding of the container div if needed */
+:host ::ng-deep .p-menubar .p-menubar-end > div {
+    display: flex;
+    align-items: center;
+}

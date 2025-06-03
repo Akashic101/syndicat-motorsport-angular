@@ -37,42 +37,36 @@ import { IftaLabelModule } from 'primeng/iftalabel';
 export class LeagueTableComponent {
   leagues = [
     {
-      name: 'IndyCar League - Season 1',
+      name: '90s DTM League - Season 01',
+      sim: 'Assetto Corsa',
+      freeSpots: 24,
+      rounds: 8,
+      startDate: new Date('2025-06-28'),
+      endDate: new Date('2025-08-06'),
+      image:
+        'assets/images/90s_dtm_league.png',
+      link: 'http://138.201.226.34:8092/championship/61d3cc7b-8968-4030-81fc-c1aec4623b45',
+    },
+    {
+      name: 'Alpine A110 TCL Cup',
       sim: 'Assetto Corsa',
       freeSpots: 4,
+      rounds: 6,
+      startDate: new Date('2025-04-09'),
+      endDate: new Date('2025-05-28'),
+      image:
+        'assets/images/alpine_110_league.png',
+      link: 'http://138.201.226.34:8192/championship/2d6e8390-1be4-4a88-a6ba-0dafacde1ada',
+    }, {
+      name: 'More data to come',
+      sim: '',
+      freeSpots: 24,
       rounds: 8,
-      startDate: new Date('2025-01-12'),
-      endDate: new Date('2025-02-15'),
+      startDate: new Date('0001-01-01'),
+      endDate: new Date('0001-01-01'),
       image:
-        'https://i0.wp.com/syndicate-motorsport.com/wp-content/uploads/2022/07/July-Contest-9.jpg?resize=1536%2C864&ssl=1',
-    },
-    {
-      name: 'Radical League - Season 3',
-      sim: 'Assetto Corsa',
-      freeSpots: 2,
-      rounds: 6,
-      startDate: new Date('2025-03-15'),
-      endDate: new Date('2025-04-24'),
-      image:
-        'https://www.thespeedjournal.com/wp-content/uploads/2022/12/radical-motorsport-sr3-xxr-03.jpg',
-    },
-    {
-      name: 'Rallye League - Season 1',
-      sim: 'Richard Burns Rallye',
-      freeSpots: 2,
-      rounds: 6,
-      startDate: new Date('2025-04-5'),
-      endDate: new Date('2025-06-1'),
-      image: 'https://i.ytimg.com/vi/BHK3e_Xr4GQ/maxresdefault.jpg',
-    },
-    {
-      name: '1976 League - Season 2',
-      sim: 'Assetto Corsa',
-      freeSpots: 0,
-      rounds: 12,
-      startDate: new Date('2025-06-23'),
-      endDate: new Date('2025-07-5'),
-      image: 'https://i.ytimg.com/vi/0XXkPGnau6Q/maxresdefault.jpg',
+        'https://placehold.co/600x340',
+      link: 'https://discord.gg/5bXJCYq',
     },
   ];
 
@@ -95,6 +89,7 @@ export class LeagueTableComponent {
     startDate: any;
     endDate: any;
     image?: string;
+    link?: string;
   }): string {
     const currentDate = new Date();
     if (league.endDate < currentDate) {

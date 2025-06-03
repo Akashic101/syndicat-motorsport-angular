@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class DiscordService {
-  private inviteUrl = 'https://discord.com/api/v9/invites/bw7nfEeJ?with_counts=true&with_expiration=true';
+  private inviteUrl = 'https://discord.com/api/v9/invites/vB5xpC4Jhk?with_counts=true&with_expiration=true';
 
   constructor(private http: HttpClient) {}
 

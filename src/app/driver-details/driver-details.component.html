@@ -1,0 +1,48 @@
+<div *ngIf="driver" class="driver-profile">
+  <div class="profile-header">
+    <img *ngIf="driver['Icon_URL']" [src]="driver['Icon_URL']" alt="Driver Icon" class="driver-icon">
+    <h1>{{ driver['Driver'] }}</h1>
+    <p>Rank: {{ driver['Rank'] }}</p>
+    <p>ELO: {{ driver['ELO'] }}</p>
+  </div>
+
+  <div class="profile-section">
+    <h3>Ratings</h3>
+    <p>License: {{ driver['License'] }} (Next: {{ driver['next_license'] }})</p>
+    <p>Safety Rating: {{ driver['Safety Rating'] }}</p>
+  </div>
+
+  <div class="profile-section">
+    <h3>Stats</h3>
+    <div class="stats-grid">
+      <div>
+        <h4>Session Stats</h4>
+        <p>Sessions: {{ driver['NumberOfSessionFiles'] }}</p>
+        <p>Total Driving Time: {{ formatDrivingTime(driver['TotalDrivingTimeMinutes']) }}</p>
+        <p>Avg Contacts per hour: {{ driver['AvgContactsPerMinute'] }}</p>
+      </div>
+      <div>
+        <h4>Race Stats</h4>
+        <p>Race Starts: {{ driver['Race_Starts'] }}</p>
+        <p>Wins: {{ driver['Win_Count'] }}</p>
+        <p>Podiums: {{ driver['Podium_Count'] }}</p>
+      </div>
+      <div>
+        <h4>Collision Stats</h4>
+        <p>Total Collisions (Weighted): {{ driver['TotalCollisionsWeighted'] }}</p>
+      </div>
+      <div>
+        <h4>Car & Track Info</h4>
+        <p>Cars Driven: {{ driver['Cars_Driven'] }}</p>
+        <p>Tracks Driven: {{ driver['Tracks_Driven'] }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- You can add more sections here as needed -->
+
+</div>
+
+<div *ngIf="!driver" class="driver-profile">
+  <p>Driver not found.</p>
+</div> 

@@ -1,58 +1,4 @@
 <div class="px-6 py-8 md:px-12 lg:px-20">
-  <div class="mb-4 p-4 rounded-md shadow-md">
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 items-center"
-    >
-      <!-- League Name Input -->
-      <div class="flex items-center">
-        <p-iftalabel class="w-full">
-          <input
-            type="text"
-            pInputText
-            id="name"
-            [(ngModel)]="searchName"
-            placeholder="Search by name"
-            class="w-full"
-          />
-          <label for="name" class="block text-sm font-medium mr-2"
-            >League Name</label
-          >
-        </p-iftalabel>
-      </div>
-
-      <div class="flex items-center">
-        <p-iftalabel class="w-full">
-          <input
-            type="text"
-            pInputText
-            id="sim"
-            [(ngModel)]="searchSim"
-            placeholder="Search by sim"
-            class="w-full"
-          />
-          <label for="sim" class="block text-sm font-medium mr-2">Sim</label>
-        </p-iftalabel>
-      </div>
-
-      <div class="flex items-center">
-        <p-iftalabel class="w-full">
-          <p-select
-            id="status"
-            [(ngModel)]="statusFilter"
-            [options]="statuses"
-            optionLabel="label"
-            optionValue="value"
-            placeholder="Select Status"
-            class="w-full"
-          ></p-select>
-          <label for="status" class="block text-sm font-medium mr-2"
-            >Status</label
-          >
-        </p-iftalabel>
-      </div>
-    </div>
-  </div>
-
   <!-- League Cards Grid -->
   <div class="grid grid-cols-12 gap-4">
     <div
@@ -67,6 +13,7 @@
         [startDate]="league.startDate"
         [endDate]="league.endDate"
         [image]="league.image"
+        [link]="league.link"
       ></sm-league-card>
     </div>
   </div>

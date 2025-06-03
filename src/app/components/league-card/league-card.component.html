@@ -18,19 +18,16 @@
 
   <div class="flex justify-between">
     <p class="text-sm text-start">
-      {{ rounds() }} rounds - {{ freeSpots() }} free spots
+      {{ rounds() }} rounds <span *ngIf="leagueStatus === 'planned'">- {{ freeSpots() }} free spots</span>
     </p>
     <p class="text-sm text-end">{{ startDate() | date }} - {{ endDate() | date }}</p>
   </div>
 
   <ng-template #footer>
     <div class="flex gap-4 mt-1">
-      <p-button
-        [label]="getButtonLabel()"
-        class="w-full"
-        [disabled]="!isSignUpActive"
-        styleClass="w-full"
-      />
+      <a href="{{link()}}" target="_blank" rel="noopener noreferrer" class="p-button rounded font-semibold transition duration-300">
+        {{ getButtonLabel()}}
+    </a>
     </div>
   </ng-template>
 </p-card>

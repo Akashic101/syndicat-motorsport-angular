@@ -7,6 +7,8 @@ import { EventTableComponent } from "../../components/event-table/event-table.co
 import { CtaComponent } from "../../components/cta/cta.component";
 import { StatFieldComponent } from "../../components/stat-field/stat-field.component";
 import { DiscordService } from '../../services/discord.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sm-landing-page',
@@ -24,6 +26,7 @@ import { DiscordService } from '../../services/discord.service';
 })
 export class LandingPageComponent implements OnInit {
   discordMembers: number | null = null;
+  totalLapRecords: number | null = null;
 
   get yearsOfExperience(): number {
     const start = new Date(2020, 9, 1); // October is month 9 (0-indexed)
@@ -39,11 +42,18 @@ export class LandingPageComponent implements OnInit {
     return years;
   }
 
-  constructor(private discordService: DiscordService) {}
+  constructor(private discordService: DiscordService, private http: HttpClient) {}
 
   ngOnInit() {
     this.discordService.getMemberCount().subscribe(count => {
       this.discordMembers = count;
+    });
+
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPXEpA0_3WvJmtxJTKZ97Bi8tbZWsjCZT892N4mNgdaMJyhO-Syh1Xn-Yf4KaGw9SAZjGRwjtCpjZb/pub?gid=462474009&single=true&output=csv';
+    this.http.get(csvUrl, { responseType: 'text' }).pipe(
+      map(csv => csv.split('\n').filter(line => line.trim().length > 0).length - 1)
+    ).subscribe(count => {
+      this.totalLapRecords = count;
     });
   }
 }

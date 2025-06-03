@@ -18,6 +18,7 @@ export class LeagueCardComponent {
   startDate = input.required<Date>()
   endDate = input.required<Date>()
   image = input.required<string>()
+  link = input.required<string>()
 
   get leagueStatus(): string {
     const currentDate = new Date();
@@ -30,8 +31,8 @@ export class LeagueCardComponent {
     }
   }
 
-  get isSignUpActive(): boolean {
-    return this.leagueStatus === 'planned' && this.freeSpots() > 0;
+  get isActive(): boolean {
+    return this.leagueStatus !== 'planned' && this.freeSpots() > 0;
   }
 
   getButtonLabel(): string {
