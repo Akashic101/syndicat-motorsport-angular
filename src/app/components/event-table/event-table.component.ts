@@ -23,8 +23,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
           <ng-template pTemplate="header">
             <tr>
               <th>Event</th>
-              <th>Track</th>
-              <th>Car</th>
               <th>Sim</th>
               <th>Date</th>
             </tr>
@@ -32,8 +30,6 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
           <ng-template pTemplate="body" let-event>
             <tr>
               <td>{{event.eventName}}</td>
-              <td>{{event.track}}</td>
-              <td>{{event.car}}</td>
               <td>{{event.sim}}</td>
               <td>{{event.date | date:'medium'}}  BST (UTC+1)</td>
             </tr>

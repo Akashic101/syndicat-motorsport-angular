@@ -3,8 +3,6 @@
     <ng-template pTemplate="header">
       <tr>
         <th>Event Name</th>
-        <th>Track</th>
-        <th>Car</th>
         <th>Sim</th>
         <th>Date</th>
         <th></th>
@@ -13,8 +11,6 @@
     <ng-template pTemplate="body" let-event>
       <tr>
         <td>{{ event.eventName }}</td>
-        <td>{{ event.track }}</td>
-        <td>{{ event.car }}</td>
         <td>{{ event.sim }}</td>
         <td>{{ event.date | date : "dd.MM.yyyy 'at' hh:mm a OOO" }} BST (UTC+1)</td>
         <td>

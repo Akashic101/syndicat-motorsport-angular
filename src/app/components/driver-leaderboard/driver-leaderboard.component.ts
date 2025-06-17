@@ -53,10 +53,7 @@ import { ButtonModule } from 'primeng/button';
         #dt
         [value]="drivers"
         [tableStyle]="{ 'min-width': '50rem' }"
-        [paginator]="true"
-        [rows]="10"
         [showCurrentPageReport]="true"
-        [rowsPerPageOptions]="[10, 25, 50]"
         [globalFilterFields]="['name', 'license', 'safetyRating']"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} drivers"
         [sortField]="'rank'"
