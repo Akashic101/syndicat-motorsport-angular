@@ -76,7 +76,6 @@ import { ButtonModule } from 'primeng/button';
             <th pSortableColumn="safetyRatingValue">
               Safety Rating <p-sortIcon field="safetyRatingValue"></p-sortIcon>
             </th>
-            <th></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-driver>
@@ -96,9 +95,7 @@ import { ButtonModule } from 'primeng/button';
                 [severity]="getSafetyRatingSeverity(driver.safetyRating)"
               ></p-tag>
             </td>
-            <td>
-              <a routerLink="/" class="p-button p-button-raised p-button-info"> Router </a>
-            </td>
+            
           </tr>
         </ng-template>
       </p-table>
